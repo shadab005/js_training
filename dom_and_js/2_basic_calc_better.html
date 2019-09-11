@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>
+        function calculate(op) {
+            var n1 = parseInt(document.form1.n1.value)
+            var n2 = parseInt(document.form1.n2.value)
+            var result = 0
+            console.log("Called calcultate")
+            selectedIndex = document.form1.cal_selector.selectedIndex
+            console.log("Selected Index = " + selectedIndex)
+            switch(selectedIndex){
+                case 0:
+                    console.log('Add')
+                    result = n1+n2
+                    break
+                case 1:
+                    console.log('Sub')
+                    result = n1-n2
+                    break
+                case 2:
+                    console.log('Mul')
+                    result = n1*n2
+                    break
+                case 3:
+                    console.log('Div')
+                    result = n1/n2
+                    break
+            }
+            document.form1.result.value = result
+        }
+    </script>
+</head>
+<body>
+    <form name = "form1">
+        <input type="text" name="n1" id ="n1" value=""/> 
+        <select name="cal_selector" onchange="calculate()">
+                <option value="add">ADD</option>
+                <option value="sub">SUB</option>
+                <option value="mul">MUL</option>
+                <option value="div">DIV</option>
+         </select>
+        </label> <input type="text" name="n2" id ="n2" value=""/>
+        <label for="result">Result<label></label> <input type="text" name="result" id ="result" value=""/>
+    </form>
+</body>
+</html>

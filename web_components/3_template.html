@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <script>
+      /*
+       * Template Element
+       * A built-in <template> element serves as a storage for HTML markup templates. 
+       * The browser ignores it contents, only checks for syntax validity, but we can access and use it in JavaScript, to create other elements.
+       * We can put styles and scripts into <template> as well.
+       * The Template content becomes live (styles apply, scripts run etc) when we insert it into the document.
+       * The template content is available in its content property as a DocumentFragment – a special type of DOM node.
+       * We can treat it as any other DOM node, except one special property: when we insert it somewhere, its children are inserted instead.
+       *
+       *
+       */
+
+
+    </script>
+  </head>
+  <body>
+      <!-- **************** Example 1 ***************************************-->
+      <template id="tmpl">
+          <script>
+              console.log("Executed when this template is added to the dom element")
+          </script>
+          <div class="message">Hello, world!</div>
+      </template>
+
+      <script>
+          // First Child
+          let elem = document.createElement('div');
+          // Clone the template content to reuse it multiple times
+          elem.append(tmpl.content.cloneNode(true));
+          document.body.append(elem);
+  
+          // Second Child
+          elem = document.createElement('div');
+          elem.append(tmpl.content.cloneNode(true));
+          document.body.append(elem);
+  
+          //Third Child
+          elem = document.createElement('div');
+          elem.append(tmpl.content.cloneNode(true));
+          document.body.append(elem);
+        // Now the script from <template> runs
+      </script>
+
+
+      <!-- **************** Example 2 ***************************************-->
+      <template id="tmpl2">
+          <style>
+              p {
+                  font-weight: bold;
+              }
+          </style>
+          <p id="message"></p>
+      </template>
+
+      <div id="elem">Click me</div>
+
+      <script>
+          document.getElementById("elem").onclick = function () {
+              elem.attachShadow({ mode: 'open' });
+              elem.shadowRoot.append(tmpl2.content.cloneNode(true));
+              elem.shadowRoot.getElementById('message').innerHTML = "Hello from the shadows!";
+          };
+      </script>
+
+  </body>
+</html>

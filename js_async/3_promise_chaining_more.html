@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      /*
+      * Callback Hell, also known as Pyramid of Doom, is an anti-pattern seen in code of programmers who are not wise in the ways of asynchronous programming.
+      * async1(function(){
+      *    async2(function(){
+      *       async3(function(){
+      *           async4(function(){
+      *                    ....
+      *           });
+      *       });
+      *     });
+      * });
+      * 
+      * 
+      * Using prmises is a way to avoid call back hell
+      */
+      function addAsync(num1, num2) {
+        return Promise.resolve(num1 + num2);
+      }
+      //Every then function is returning Promise and therefore we are able to chain
+      addAsync(1, 2)
+        .then(result => addAsync(result, 3))
+        .then(result => addAsync(result, 4))
+        .then(result => console.log("total: " + result))
+        .catch(e => console.log("error =" + e))
+    </script>
+  </head>
+
+  <body>
+    HELLO
+  </body>
+</html>

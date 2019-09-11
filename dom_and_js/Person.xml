@@ -1,0 +1,22 @@
+<People>
+    <Person id="1">
+       <FirstName>A1</FirstName>
+       <LastName>B1</LastName>
+       <NickName>AB1</NickName>
+    </Person>
+    <Person id="2">
+       <FirstName>A2</FirstName>
+       <LastName>B2</LastName>
+       <NickName>AB2</NickName>
+    </Person>
+    <Person id="3">
+       <FirstName>A3</FirstName>
+       <LastName>B3</LastName>
+       <NickName>AB3</NickName>
+    </Person>
+    <Person id="4">
+       <FirstName>A4</FirstName>
+       <LastName>B4</LastName>
+       <NickName>AB4</NickName>
+    </Person>
+</People>

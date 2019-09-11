@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script>
+      /*
+       * Shadow DOM serves for encapsulation. It allows a component to have its very own “shadow” DOM tree
+       * Built-in shadow DOM ex : <input type="range"> 
+       * A DOM element can have two types of DOM subtrees:
+       * •	Light Tree – a regular DOM subtree, made of HTML children. 
+       * •	Shadow Tree – a hidden DOM subtree, not reflected in HTML
+       * Shadow tree can be used in Custom Elements to hide component internals and apply component-local styles.
+       *
+       *
+       */
+
+       class HelloShadow extends HTMLElement {
+            connectedCallback() {
+               //elem.attachShadow({mode: …}) creates a shadow tree.
+               //mode : "open"   - the shadow root is available as elem.shadowRoot. Any code is able to access the shadow tree of elem. 
+               //	      "closed" – elem.shadowRoot is always null.
+               // Browser-native shadow trees, such as <input type="range">, are closed. There’s no way to access them.
+               // The elem must be either a custom element, or one of: “article”, “aside”, “blockquote”, “body”, “div”, 
+               // “footer”, “h1…h6”, “header”, “main” “nav”, “p”, “section”, or “span”. Other elements, like <img>, can’t host shadow tree.
+                const shadowRoot = this.attachShadow({ mode: "open" })
+                const style = document.createElement("style");
+                style.textContent = "p { color: red; }";
+                shadowRoot.appendChild(style);
+                const p = document.createElement("p");
+                p.textContent = `Hello ${this.getAttribute('name')} in red!`;
+                shadowRoot.appendChild(p);
+            }
+        }
+        customElements.define("hello-shadow", HelloShadow);
+
+    </script>
+  </head>
+  <body>
+      <input type="range"> 
+      <hello-shadow name="Kevin"></hello-shadow>
+  </body>
+</html>

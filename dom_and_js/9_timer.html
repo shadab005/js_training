@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script>
+            var id1
+            function showTime() {
+                div1 = document.getElementById('div1')
+                var dt = new Date();
+                div1.innerHTML = `${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`
+            }
+
+            function win_load() {
+                id1 = setInterval("showTime()", 1000)
+            }
+            
+        </script>
+    </head>
+ <body onload="win_load()">
+    <div id="div1"></div>
+     <input type="button" value="stop" onclick="clearInterval(id1)">
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      //Class in js is defined using function only.
+      /************* class definition starts here ******************/
+      function Account(id, name, balance) {
+        //Following code will execute when the object is created
+       // alert("Object of Account is instantiated");
+        //Following are properties of the class
+        this.Id = id;
+        this.Name = name;
+        this.Balance = balance;
+
+        //Following are methods of the class.
+        //Drawback of this is that this method is recreated for every new object.
+        this.Deposit = function(amount) {
+          this.Balance += amount;
+        };
+        //Reusing the same method of all objects - Use the address of existing object.
+        this.ShowDetails = ShowAccountDetails;
+      }
+      function ShowAccountDetails() {
+        alert(this.Id + " " + this.Name + " " + this.Balance);
+      }
+      /************* class definition ends here ******************/
+
+      var a1 = new Account(1, "A1", 10000)
+      a1.ShowDetails()
+
+      //Adding new function to the class. And not to just this function
+      Account.prototype.withDraw = function(amount) {
+        if(this.Balance - amount < 500)
+          throw "Insufficient funds"
+        this.Balance -= amount
+      }
+
+      var b1 = new Account(1, "B1", 300)
+      b1.Deposit(700)
+      b1.withDraw(100)
+      b1.ShowDetails()
+
+      //Adding function to object and not just class
+      b1.fun = () => console.log("fun time")
+      b1.fun()
+      // a1.fun() throws error because the fun is binded to b1 object and not to a1
+
+    </script>
+  </head>
+
+  <body>
+    HELLO
+  </body>
+</html>

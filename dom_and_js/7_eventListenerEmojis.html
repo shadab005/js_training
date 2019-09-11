@@ -1,0 +1,20 @@
+<html>
+<body>
+    <img src="happy.png" id="img1" width="200px"/>
+
+
+  <script>
+     document.getElementById("img1").addEventListener("mouseenter", e => document.getElementById("img1").src= "seriously.jpeg")
+     document.getElementById("img1").addEventListener("mouseleave", e => document.getElementById("img1").src= "happy.png")
+
+     document.getElementById("img1").addEventListener("click", e => {
+        console.log("Clicked!")
+        console.log(e)
+        for(var prop in e){
+            //Prints the property and it's value of this event
+            console.log(`${prop} => ${e[prop]}`)
+        }
+     })
+  </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        add = function(a,b) {
+            console.log(arguments)
+            let args = Array.prototype.slice.call(arguments)
+            console.log(args)
+        }
+        console.log(add.length) //function arity i.e. count of number of parameter of functions
+        add(1,2,3)
+        //Array looping
+        let a = [10,12,13];
+        console.log(typeof a) //object
+        a.forEach(n => console.log(n))
+    </script>
+</head>
+
+<body>
+   HELLO!
+</body>
+</html>

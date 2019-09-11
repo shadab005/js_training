@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var global;
+        function chkAll1_change()
+        {
+            var chkboxes = document.forms[0].gr1chk;
+            for (var i = 0; i < chkboxes.length; i++) {
+                chkboxes[i].checked = document.forms[0].chkAll1.checked;
+            }
+        }
+        function chkAll2_change() {
+            var elements = document.forms[0].elements
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].name.indexOf("grchk") != -1)
+                    elements[i].checked = document.forms[0].chkAll2.checked;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="/" method="post">
+        <input type="checkbox" name="chkAll1" value="" onchange="chkAll1_change()" /> Check All <br />
+        <input type="checkbox" name="gr1chk" value="1" />
+        <input type="checkbox" name="gr1chk" value="2" />
+        <input type="checkbox" name="gr1chk" value="3" />
+        <input type="checkbox" name="gr1chk" value="4" />
+<hr />
+        <input type="checkbox" name="chkAll2" value="" onchange="chkAll2_change()" /> Check All <br />
+        <input type="checkbox" name="grchk1" value="1" /> 
+        <input type="checkbox" name="grchk2" value="2" />
+        <input type="checkbox" name="grchk3" value="3" />
+        <input type="checkbox" name="grchk4" value="4" />
+    </form>
+</body>
+</html>

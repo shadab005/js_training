@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+            var n  = 10
+            function Foo() {
+                a1 = {name : 'John', age : 34}
+                a2 = {name : 'John', age : 34}
+                console.log(Object.is(a1,a2))
+                console.log(compare(a1,a2))
+            }
+            function compare(a1,a2){
+                for(prop in a1) {
+                    if(a1[prop] != a2[prop]) {
+                        return false
+                    }
+                    return true
+                }
+
+            }
+            Foo()
+    </script>
+</body>
+</html>

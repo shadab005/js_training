@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+       greet = function(name) {
+           return new Promise((resolve, reject) => {
+               if(name == undefined){
+                   reject(new Error("Undefined name parameter"))
+               } else {
+               resolve("Hello " + name)
+               }
+           })
+       }
+       //greet("shadab").then((result)=>console.log(result))
+
+       let promises = [greet("shebi"), greet("shafa"), greet("shiree"), greet()]
+       Promise.all(promises)
+              .then(results => {
+                  for(let i = 0 ; i < results.length ; i++){
+                      console.log(results[i])
+                  }
+              })
+              .catch(e => console.error(e))
+       //Note : even if one promise fail all then control goes to catch block and no promise value is captured
+    </script>
+  </head>
+
+  <body>
+    HELLO
+  </body>
+</html>

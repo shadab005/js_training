@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>
+        function add() {
+            var n1 = document.form1.n1.value
+            var n2 = document.form1.n2.value
+            document.form1.result.value = parseInt(n1)+parseInt(n2)
+
+        }
+        function subtract() {
+            var n1 = document.form1.n1.value
+            var n2 = document.form1.n2.value
+            document.form1.result.value = parseInt(n1)-parseInt(n2)
+        }
+        function multiply() {
+            var n1 = document.form1.n1.value
+            var n2 = document.form1.n2.value
+            document.form1.result.value = parseInt(n1)*parseInt(n2)
+        }
+        function divide() {
+            var n1 = document.form1.n1.value
+            var n2 = document.form1.n2.value
+            ans = parseInt(n1)/parseInt(n2)
+            if(isFinite(ans)){
+                document.form1.result.value = ans
+            }
+            else {
+                document.form1.result.value = NaN
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name = "form1">
+        <label for="n1">N1<label></label> <input type="text" name="n1" id ="n1" value=""/><br>
+        <label for="n2">N2<label></label> <input type="text" name="n2" id ="n2" value=""/><br>
+        <label for="result">Result<label></label> <input type="text" name="result" id ="result" value=""/><br>
+
+        <input type="button" name="+" value="ADD" onclick="add()">
+        <input type="button" name="-" value="SUB" onclick="subtract()">
+        <input type="button" name="*" value="MUL" onclick="multiply()">
+        <input type="button" name="/" value="DIV" onclick="divide()">
+
+    </form>
+</body>
+</html>

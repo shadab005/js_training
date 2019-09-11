@@ -1,0 +1,14 @@
+<Emps>
+    <Emp id="101">
+        <Name>ABC</Name>
+        <Salary>10000</Salary>
+    </Emp>
+    <Emp id="102">
+            <Name>PQR</Name>
+            <Salary>9000</Salary>
+    </Emp>
+    <Emp id="103">
+            <Name>LMN</Name>
+            <Salary>8000</Salary>
+    </Emp>
+</Emps>

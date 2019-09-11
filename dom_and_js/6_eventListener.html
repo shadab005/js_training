@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+        
+    <input type="button" id="b1" name="btnSayHello" value="Say Hello" onclick="Sayhello()" />
+    <script>
+        //script tag in head and addEventListener it won't work. Since button won't be initialized by the time script is getting loaded
+        function Sayhello() {
+            alert("Hello World!!")
+        }
+
+        document.getElementById("b1").addEventListener("click", e => console.log("Event triggered"))
+    </script>
+ </body>
+</html>

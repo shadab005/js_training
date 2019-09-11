@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function ColorChanged() {
+            if (document.forms[0].rbnColor[0].checked)
+                document.getElementById("divDemo").style.color = "red";
+            else if (document.forms[0].rbnColor[1].checked)
+                document.getElementById("divDemo").style.color = "green";
+            else
+                document.getElementById("divDemo").style.color = "blue";
+        }
+
+        function ColorChanged2(col) {
+            document.getElementById("divDemo2").style.color = col;
+        }
+        
+        function ColorChanged3(rbn) {
+            document.getElementById("divDemo3").style.color = rbn.value;
+        }
+    </script>
+</head>
+<body>
+    <div id="divDemo">This is a block</div>
+    <form action="/" method="post">
+        <input type="radio" name="rbnColor" value="Red" onchange="ColorChanged()" />Red
+        <input type="radio" name="rbnColor" value="Green" onchange="ColorChanged()" />Green
+        <input type="radio" name="rbnColor" value="Blue" onchange="ColorChanged()" />Blue
+    </form>
+    <hr />
+    <div id="divDemo2">This is a block</div>
+    <form action="/" method="post">
+        <input type="radio" name="rbnColor2" value="Red" onchange="ColorChanged2('red')" />Red
+        <input type="radio" name="rbnColor2" value="Green" onchange="ColorChanged2('green')" />Green
+        <input type="radio" name="rbnColor2" value="Blue" onchange="ColorChanged2('blue')" />Blue
+    </form>
+    <hr />
+    <div id="divDemo3">This is a block</div>
+    <form action="/" method="post">
+        <input type="radio" name="rbnColor3" value="Red" onchange="ColorChanged3(this)" />Red
+        <input type="radio" name="rbnColor3" value="Green" onchange="ColorChanged3(this)" />Green
+        <input type="radio" name="rbnColor3" value="Blue" onchange="ColorChanged3(this)" />Blue
+    </form>
+</body>
+</html>

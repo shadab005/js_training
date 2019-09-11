@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script language="javascript">
+      var xmlDoc;
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          myFunction(this);
+        }
+      };
+
+      xmlhttp.open("GET", "Person.xml", true);
+      xmlhttp.send();
+
+      function myFunction(xml) {
+        console.log("myFunction invoked")
+        xmlDoc = xml.responseXML;
+        nPersons = xmlDoc.getElementsByTagName("Person");
+        for (i = 0; i < nPersons.length; i++) {
+            id = nPersons[i].attributes["id"].nodeValue
+            fName = nPersons[i].getElementsByTagName("FirstName")[0].firstChild.nodeValue
+            lName = nPersons[i].getElementsByTagName("LastName")[0].firstChild.nodeValue
+            nName = nPersons[i].getElementsByTagName("NickName")[0].firstChild.nodeValue
+           
+            var tableRow = document.createElement('tr')
+           
+            var idData = document.createElement('td')
+            idData.appendChild(document.createTextNode(id))
+            var fNameData = document.createElement('td')
+            fNameData.appendChild(document.createTextNode(fName))
+            var lNameData = document.createElement('td')
+            lNameData.appendChild(document.createTextNode(lName))
+            var nNameData = document.createElement('td')
+            nNameData.appendChild(document.createTextNode(nName))
+
+            tableRow.appendChild(idData)
+            tableRow.appendChild(fNameData)
+            tableRow.appendChild(lNameData)
+            tableRow.appendChild(nNameData)
+
+            var tableElement = document.getElementById("personTable")
+            tableElement.appendChild(tableRow)
+
+        }
+        document.getElementById("personTable").addEventListener("click", e =>{
+            alert(event.target.parentNode.firstChild.firstChild.nodeValue)
+        })
+    }
+    </script>
+  </head>
+
+  <body>
+    <table id="personTable">
+      <tr>
+        <th>ID</th>
+        <th>FN</th>
+        <th>LN</th>
+        <th>NN</th>
+      </tr>
+    </table>
+  </body>
+</html>

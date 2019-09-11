@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      let Foo = function() {
+        let privateVar = 42;
+        return {
+          getPrivateVar: function() {
+            return privateVar;
+          },
+          setPrivateVar: function(n) {
+            if (n < 100) privateVar = n;
+            else throw "invalid value";
+          }
+        };
+      };
+      let x = Foo();
+      x.setPrivateVar(10);
+      console.log(x.getPrivateVar()); //10
+      x.setPrivateVar(101); //error
+    </script>
+  </head>
+  
+  <body>
+    HELLO
+  </body>
+</html>

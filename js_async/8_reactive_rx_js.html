@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.5.3/rxjs.umd.js"></script>
+    <script> 
+      /*
+      * Reactive programming is actually programming with asynchronous data streams. 
+      * Observable -> Publisher
+      * Observer -> Subscriber
+      * RxJS operators act on an observable and return an observable with the operator applied, so we can chain operators together creating an Observable Chain
+      * Operators: Interval, take, map, filter, reduce, scan, . . .
+      * 
+      */
+      console.log("Welcome to reactive")
+
+      //creating observable on some streams
+      const observable = rxjs.of(1,2,3,4,5); //there can be other types of streams. ex: rxjs.interval(1000);
+
+      //the above observable is adding subscribers to who all the event of new element from streams will be notified
+      observable.subscribe({
+            next(x) { console.log('got value ' + x); },
+            error(err) { console.error('something wrong occurred: ' + err); },
+            complete() { console.log('done'); }
+        });
+      console.log("Done with reactive")
+      </script>
+  </head>
+<body>
+
+    <button id="btn1">Raise event</button>
+   
+    <script>
+      var btn = document.getElementById("btn1");
+      const observableAnother = rxjs.fromEvent(btn, "click").pipe(rxjs.operators.throttleTime(500), rxjs.operators.scan(n => n + 1, 0));
+      console.log('just before subscribe');
+      observableAnother.subscribe({
+            next: x => { console.log('got value on button click event ' + x); },
+            error: err => { console.error('something wrong occurred: ' + err); },
+            complete: () => { console.log('done'); }
+        });
+
+    </script>
+</body>
+</html>

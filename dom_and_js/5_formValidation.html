@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function Validate()
+        {
+            if (document.forms[0].txtName.value.trim() == "")
+            {
+                alert("Please enter name");
+                return false;
+            }
+            return true;
+        }
+        function btnSubmitForm_click()
+        {
+            document.forms[0].submit();
+        }
+        function btnResetForm_click() {
+            document.forms[0].reset();
+        }
+    </script>
+</head>
+<body>
+    <form action="Form2.html" method="get" onsubmit="return Validate()">
+        <input type="text" name="txtName" value="abc" />
+        <input type="submit" name="btnSubmit" value="Submit" />
+        <input type="reset" name="btnReset" value="Reset" onclick="return confirm('Are you sure?')" />
+        <input type="button" name="btnSubmitForm" value="Submit Form" onclick="btnSubmitForm_click()" />
+        <input type="button" name="btnResetForm" value="Reset Form" onclick="btnResetForm_click()" />
+    </form>
+</body>
+</html>

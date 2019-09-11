@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      /*
+      *  Promises are objects with 3 possible states : Pending, Fulfilled, Rejected 
+      *  callbacks with Promise are : then, catch
+      *  then is called when state of Promise is Fullfilled, and catch is called in case it is rejected
+      * 
+      * 
+      * Promise uses:
+      * 1. Flattened callbacks
+      * 2. Return values from asynchronous function
+      * 3. Throw and Catch exceptions
+      * 
+      */
+      var isMomHappy = true;
+      // Promise
+      var willIGetNewPhone = new Promise((resolve, reject) => {
+        if (isMomHappy) {
+          var phone = {
+            brand: "Samsung",
+            color: "black"
+          };
+          resolve(phone); // fulfilled
+        } else {
+          var reason = new Error("mom is not happy");
+          reject(reason); // reject
+        }
+      });
+      var askMom = function() {
+        willIGetNewPhone
+          .then(function(phone) {
+            console.log(phone);
+            // output: { brand: 'Samsung', color: 'black' }
+          })
+          .catch(function(error) {
+            console.log(error.message);
+            // output: 'mom is not happy'
+          });
+      };
+      askMom();
+    </script>
+  </head>
+
+  <body>
+    HELLO
+  </body>
+</html>

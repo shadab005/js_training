@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function greet(name) {
+        console.log("Hello " + name)
+      }
+      // execute this function with delay of 1 second
+      setTimeout(function(){
+        greet("Kevin")
+      }, 4000)
+
+      //Another way to pass argument to greet function in timeout
+      setTimeout(greet, 10000, "Tim")
+      console.log("Done")
+
+      //create a function that will delay and then you can attach your callback
+      function delay(timeout) {
+        return new Promise((resolve, reject) => {
+          if(isNaN(timeout)) {
+            reject(new Error("delay requires a valid number"))
+          } else {
+          setTimeout(resolve, timeout)
+          }
+        })
+      }
+
+      delay(11000)
+       .then(()=>greet("Keeper"))
+       .catch((err) => console.error(err))
+
+    </script>
+  </head>
+
+  <body>
+    HELLO
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      //Note : with closure and arrow functions, the this will be same as the one of the outer scope
+      let makeCounter = function(startingValue) {
+        let n = startingValue;
+        return function() {
+          return (n += 1);
+        };
+      };
+      let counter = makeCounter(0);
+      console.log(counter()); // 1
+      console.log(counter()); // 2
+      //A closure is a function plus enclosing environment. 
+    </script>
+  </head>
+
+  <body>
+    HELLO
+  </body>
+</html>

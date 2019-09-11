@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+      //NOTE : ES2015 Classes and Inheritance (Hidden Prototypes)
+    class Rectangle {
+      constructor(width, height) {
+        this.width = width; this.height = height;
+      }
+      area() {
+        return this.width * this.height;
+      }
+      static withWidth(width) {
+        return new Rectangle(width, width);
+      }
+    }
+
+    class Square extends Rectangle {
+      constructor(width) {
+        super(width, width);
+      }
+      sideSize() {
+        return this.width;
+      }
+    }
+    var sq = new Square(10);
+    console.log(sq.area())
+  </script>
+</head>
+
+<body>
+  HELLO
+</body>
+
+</html>
